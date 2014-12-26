@@ -1,0 +1,9 @@
+{
+    "one": "Here is \"quotes\" inside string",
+    "two": "Here is } inside string",
+    "three": "Here is { inside string",
+    "four": "Here is ] inside string",
+    "five": "Here is [ inside string",
+    "six": "Here is , inside string",
+    "seven": "Here is \\\"quote and } and { and ] inside string"
+}

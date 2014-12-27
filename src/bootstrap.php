@@ -5,12 +5,12 @@ defined('JSON_NUMERIC_CHECK') or define('JSON_NUMERIC_CHECK', 32);
 defined('JSON_UNESCAPED_SLASHES') or define('JSON_UNESCAPED_SLASHES', 64);
 defined('JSON_UNESCAPED_UNICODE') or define('JSON_UNESCAPED_UNICODE', 256);
 
-function future_json_decode($json, $assoc=false, $depth=512, $options=0)
+function future_json_decode()
 {
-    return Future\Json::decode($json, $assoc, $depth, $options);
+    return call_user_func_array('Future\\Json::decode', func_get_args());
 }
 
-function future_json_encode($value, $options=0, $depth=512)
+function future_json_encode()
 {
-    return Future\Json::encode($value, $options, $depth);
+    return call_user_func_array('Future\\Json::encode', func_get_args());
 }

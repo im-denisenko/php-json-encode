@@ -26,6 +26,15 @@ echo Mint\Json::encode($data, JSON_UNESCAPED_UNICODE);
 echo Mint\Json::encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 ```
 
+# Shortcuts
+
+If you dont like Namespace\Classname::staticMethod call, you can use shortcuts.
+
+```php
+future_json_encode($data, JSON_UNESCAPED_UNICODE);
+future_json_decode($data, true);
+```
+
 # Testing
 
 If current version PHP allow to use features described above, then encoder will pass all arguments to native function instead.

@@ -19,7 +19,7 @@
     },
     "autoload": {
         "files": [
-            "src/constants.php"
+            "src/bootstrap.php"
         ],
         "psr-4": {
             "Mint\\": "src/Mint/"

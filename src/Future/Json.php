@@ -1,5 +1,5 @@
 <?php
-namespace Mint;
+namespace Future;
 
 class Json
 {

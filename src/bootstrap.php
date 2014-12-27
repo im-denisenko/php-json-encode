@@ -7,10 +7,10 @@ defined('JSON_UNESCAPED_UNICODE') or define('JSON_UNESCAPED_UNICODE', 256);
 
 function future_json_decode($json, $assoc=false, $depth=512, $options=0)
 {
-    return Mint\Json::decode($json, $assoc, $depth, $options);
+    return Future\Json::decode($json, $assoc, $depth, $options);
 }
 
 function future_json_encode($value, $options=0, $depth=512)
 {
-    return Mint\Json::encode($value, $options, $depth);
+    return Future\Json::encode($value, $options, $depth);
 }

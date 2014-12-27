@@ -1,4 +1,4 @@
-Mint\Json
+Future\Json
 =======
 
 Provides features, added to json_encode since version 5.3.0, for version 5.3.0.
@@ -19,11 +19,11 @@ Provides features, added to json_encode since version 5.3.0, for version 5.3.0.
 
 ```php
 $data = array('foo' => 'bar');
-echo Mint\Json::encode($data, JSON_PRETTY_PRINT);
-echo Mint\Json::encode($data, JSON_NUMERIC_CHECK);
-echo Mint\Json::encode($data, JSON_UNESCAPED_SLASHES);
-echo Mint\Json::encode($data, JSON_UNESCAPED_UNICODE);
-echo Mint\Json::encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+echo Future\Json::encode($data, JSON_PRETTY_PRINT);
+echo Future\Json::encode($data, JSON_NUMERIC_CHECK);
+echo Future\Json::encode($data, JSON_UNESCAPED_SLASHES);
+echo Future\Json::encode($data, JSON_UNESCAPED_UNICODE);
+echo Future\Json::encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 ```
 
 # Shortcuts

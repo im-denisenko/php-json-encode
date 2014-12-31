@@ -84,7 +84,7 @@ class JsonTest extends \PHPUnit_Framework_TestCase
             1234567,
             '1234567',
             '1234567foo',
-            'foo"1234567"bar'
+            'foo"1234567"bar',
         );
         $result = file_get_contents(__DIR__.'/assert_6.json');
         $this->assertEquals($result, Json::encode($data, JSON_NUMERIC_CHECK));
@@ -96,10 +96,11 @@ class JsonTest extends \PHPUnit_Framework_TestCase
     public function depth()
     {
         $data = array(
+            'zero' => '{{{{{{{{{{{{{ " {{["[["[{{{{{{{ "',
             'one' => array(
                 'two' => array(
                     'three' => array(
-                        1,2,3,4,5
+                        1,2,3,4,5,
                     ),
                 ),
             ),
@@ -110,6 +111,5 @@ class JsonTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse(false === Json::encode($data, null, 4));
         $this->assertFalse(false === Json::encode($data, null, 5));
         $this->assertFalse(false === Json::encode($data));
-
     }
 }

@@ -1,6 +1,8 @@
 Future\Json
 =======
 
+[![Build Status](https://travis-ci.org/im-denisenko/php-json-encode.svg?branch=master)](https://travis-ci.org/im-denisenko/php-json-encode)
+
 Provides features, added to json_encode since version 5.3.0, for version 5.3.0.
 
 # Reference
@@ -24,15 +26,15 @@ echo Future\Json::encode($data, JSON_NUMERIC_CHECK);
 echo Future\Json::encode($data, JSON_UNESCAPED_SLASHES);
 echo Future\Json::encode($data, JSON_UNESCAPED_UNICODE);
 echo Future\Json::encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+echo Future\Json::encode($data, null, 4);
 ```
 
-# Shortcuts
+# Shortcut
 
 If you dont like Namespace\Classname::staticMethod call, you can use shortcuts.
 
 ```php
-future_json_encode($data, JSON_UNESCAPED_UNICODE);
-future_json_decode($data, true);
+future_json_encode($data, JSON_UNESCAPED_UNICODE, 10);
 ```
 
 # Testing

@@ -5,6 +5,7 @@ class Json
 {
     /**
      * Encode an php object to json
+     *
      * @param  mixed  $data
      * @param  int    $options
      * @return string
@@ -12,7 +13,7 @@ class Json
     public static function encode($data, $options = 0, $depth = 512)
     {
         $filters = array();
-        
+
         if (version_compare(phpversion(), '5.3.3', '<')) {
             if ($options & JSON_NUMERIC_CHECK) {
                 $filters[] = array(__CLASS__, 'numericCheck');
@@ -20,7 +21,6 @@ class Json
         }
 
         if (version_compare(phpversion(), '5.4.0', '<')) {
-
             if ($options & JSON_PRETTY_PRINT) {
                 $filters[] = array(__CLASS__, 'prettyPrint');
             }
@@ -51,18 +51,8 @@ class Json
     }
 
     /**
-     * Decode given json to php object
-     * @param  string $json
-     * @return mixed
-     */
-    public static function decode($json, $assoc=false, $depth=512, $options=0)
-    {
-        return json_decode($json, $assoc, $depth, $options);
-    }
-
-    /**
      * Modify given string as if json_encode was called with JSON_UNESCAPED_UNICODE option
-     * 
+     *
      * @param  string $json
      * @return string
      */
@@ -91,7 +81,6 @@ class Json
         $prevChar = '';
 
         foreach (str_split($json) as $char) {
-
             if ($char === '"' && $prevChar !== '\\') {
                 $isQuoted = !$isQuoted;
             }
@@ -130,9 +119,8 @@ class Json
     {
         $result = '';
         $isEscaped = false;
-        
-        foreach (str_split($json) as $char) {
 
+        foreach (str_split($json) as $char) {
             if ($isEscaped) {
                 $isEscaped = false;
 
@@ -166,7 +154,7 @@ class Json
      * Modify given string as if json_encode was called with $depth parameter from 5.5.0
      *
      * @param  string $json
-     * @param  int $depth
+     * @param  int    $depth
      * @return string
      */
     protected static function checkDepth($json, $depth)
@@ -174,11 +162,10 @@ class Json
         $isQuoted = false;
         $isFail = false;
         $level = 0;
-        $lastChar = '';
+        $prevChar = '';
 
         foreach (str_split($json) as $char) {
-            
-            if ($char === '"' && $lastChar !== '\\') {
+            if ($char === '"' && $prevChar !== '\\') {
                 $isQuoted = !$isQuoted;
             }
 
@@ -198,6 +185,5 @@ class Json
         }
 
         return $isFail ? false : $json;
-
     }
 }
